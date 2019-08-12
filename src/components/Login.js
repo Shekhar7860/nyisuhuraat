@@ -7,7 +7,7 @@ import Service from '../services/Service';
 import Constants from '../constants/Constants';
 import CustomToast from './CustomToast';
 import Loader from './Loader';
-
+import RNPaypal from 'react-native-paypal-lib';
 
 export default class Login extends Component {
   constructor(props){
@@ -27,8 +27,14 @@ export default class Login extends Component {
 
 
     componentDidMount = () => {
-  //  this.setupGoogleSignin();
-  
+      var myarray = [];
+  let n = 7;
+  for ( i = 0; i<=n ; i++){
+    if (n%i == 0 ){
+       myarray.push(i)
+    }
+  }
+  console.log('myarray', myarray)
   }
  
   fbSignIn = () =>{
@@ -98,36 +104,49 @@ export default class Login extends Component {
         this.props.navigation.navigate('Home')
       }
       login = () =>{
-        if (service.validateEmail(this.state.email))
-        {
-          //alert("email correct")
-          this.setState ({ emailFormatError: ''});
-        }
-        else{
-          this.setState ({ emailFormatError: "Incorrect Email"});
-        }
+        RNPaypal.paymentRequest({
+          clientId: 'AfKX2nUfxsgqrnvw3WtvybQDQ1wTk-N9KE7WB5ow58a-h-Uo7rWLYkP_CDu_V0uV4bbkoB5DRiFux84F',
+          environment: RNPaypal.ENVIRONMENT.SANDBOX,
+          intent: RNPaypal.INTENT.SALE,
+          price: 60,
+          currency: 'USD',
+          description: `Android testing`,
+          acceptCreditCards: true
+      }).then(response => {
+          console.log(response)
+      }).catch(err => {
+          console.log(err.message)
+      })
+        // if (service.validateEmail(this.state.email))
+        // {
+        //   //alert("email correct")
+        //   this.setState ({ emailFormatError: ''});
+        // }
+        // else{
+        //   this.setState ({ emailFormatError: "Incorrect Email"});
+        // }
              
-        if (this.state.email.trim() === "") {
-          this.setState(() => ({ emailError: " Email is required."}));
-          this.setState(() => ({ emailFormatError: null}));
-        } else {
-          this.setState(() => ({ emailError: null})); 
-        }
-        if (this.state.password.trim() === "") {
-          this.setState(() => ({ passwordError: " Password is required."}));
-        } else {
-          this.setState(() => ({ passwordError: null}));
-        }
+        // if (this.state.email.trim() === "") {
+        //   this.setState(() => ({ emailError: " Email is required."}));
+        //   this.setState(() => ({ emailFormatError: null}));
+        // } else {
+        //   this.setState(() => ({ emailError: null})); 
+        // }
+        // if (this.state.password.trim() === "") {
+        //   this.setState(() => ({ passwordError: " Password is required."}));
+        // } else {
+        //   this.setState(() => ({ passwordError: null}));
+        // }
         
-        if(this.state.email && this.state.password && service.validateEmail(this.state.email))
-        {
-         this.setState ({ loading: true});
-          setTimeout(() => 
-          {this.setState({loading: false})
-          service.saveUserData('user', "");
-         this.props.navigation.navigate('Home')
-           }, 3000)
-          }
+        // if(this.state.email && this.state.password && service.validateEmail(this.state.email))
+        // {
+        //  this.setState ({ loading: true});
+        //   setTimeout(() => 
+        //   {this.setState({loading: false})
+        //   service.saveUserData('user', "");
+        //  this.props.navigation.navigate('Home')
+        //    }, 3000)
+        //   }
        
       //  this.refs.defaultToastBottom.ShowToastFunction('Login SuccessFull');
       

@@ -3,6 +3,7 @@ package com.sizzerz;
 import android.app.Application;
 //import com.magus.fblogin.FacebookLoginPackage; 
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNPaypalPackage;
 
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
@@ -38,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNPaypalPackage(),
             new SplashScreenReactPackage(),
             // new GoogleAnalyticsBridgePackage(),
             new FBSDKPackage(mCallbackManager)
