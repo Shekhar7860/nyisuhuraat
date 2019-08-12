@@ -1,4 +1,4 @@
-package com.sizzerz;
+package com.aasanhain;
 
 import com.facebook.react.ReactActivity;
 import android.content.Intent;     // <--- import

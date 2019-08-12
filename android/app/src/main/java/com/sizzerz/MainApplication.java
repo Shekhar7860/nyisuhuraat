@@ -1,4 +1,4 @@
-package com.sizzerz;
+package com.aasanhain;
 
 import android.app.Application;
 //import com.magus.fblogin.FacebookLoginPackage; 
@@ -9,6 +9,8 @@ import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 //import com.facebook.reactnative.androidsdk.FBSDKPackage;
 // import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage; 
+import io.invertase.firebase.RNFirebasePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -39,8 +41,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNPaypalPackage(),
-            new SplashScreenReactPackage(),
+                new SplashScreenReactPackage(),
+          new RNFirebasePackage(),
+            new RNFirebaseMessagingPackage(),
             // new GoogleAnalyticsBridgePackage(),
             new FBSDKPackage(mCallbackManager)
            
