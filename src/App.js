@@ -8,6 +8,8 @@ import Splash from './components/Splash';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import SideMenu from './components/SideMenu';
+import Paytm from './components/Paytm';
+
 // import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
 import SplashScreen from 'react-native-splash-screen'
 
@@ -28,6 +30,7 @@ const AppNavigator = StackNavigator(
     Login: { screen: Login},
     Home: { screen: Menu},
     SignUp: { screen: SignUp},
+    Pay : { screen: Paytm},
     ForgotPassword:{ screen : ForgotPassword}
   },
   { headerMode: 'none' }

@@ -104,19 +104,20 @@ export default class Login extends Component {
         this.props.navigation.navigate('Home')
       }
       login = () =>{
-        RNPaypal.paymentRequest({
-          clientId: 'AfKX2nUfxsgqrnvw3WtvybQDQ1wTk-N9KE7WB5ow58a-h-Uo7rWLYkP_CDu_V0uV4bbkoB5DRiFux84F',
-          environment: RNPaypal.ENVIRONMENT.SANDBOX,
-          intent: RNPaypal.INTENT.SALE,
-          price: 60,
-          currency: 'USD',
-          description: `Android testing`,
-          acceptCreditCards: true
-      }).then(response => {
-          console.log(response)
-      }).catch(err => {
-          console.log(err.message)
-      })
+                this.props.navigation.navigate('Pay')
+      //   RNPaypal.paymentRequest({
+      //     clientId: 'AfKX2nUfxsgqrnvw3WtvybQDQ1wTk-N9KE7WB5ow58a-h-Uo7rWLYkP_CDu_V0uV4bbkoB5DRiFux84F',
+      //     environment: RNPaypal.ENVIRONMENT.SANDBOX,
+      //     intent: RNPaypal.INTENT.SALE,
+      //     price: 60,
+      //     currency: 'USD',
+      //     description: `Android testing`,
+      //     acceptCreditCards: true
+      // }).then(response => {
+      //     console.log(response)
+      // }).catch(err => {
+      //     console.log(err.message)
+      // })
         // if (service.validateEmail(this.state.email))
         // {
         //   //alert("email correct")
