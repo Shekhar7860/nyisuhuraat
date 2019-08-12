@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "494192112066",
+    "firebase_url": "https://sizzerz-fbed4.firebaseio.com",
+    "project_id": "sizzerz-fbed4",
+    "storage_bucket": "sizzerz-fbed4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494192112066:android:21346e092036c49e",
+        "android_client_info": {
+          "package_name": "com.sizzerz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494192112066-0m441va33bf6n4bnl8qaj892ededod9a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sizzerz",
+            "certificate_hash": "0a5dcdff73b4d33b488b5c5eb20a86693ceecc8a"
+          }
+        },
+        {
+          "client_id": "494192112066-58h7ucdj9cki90n5tbo524tcgm3676l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEYUYAeTgFHom1guN88BP2AkGTJtN7w8M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494192112066-58h7ucdj9cki90n5tbo524tcgm3676l5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
