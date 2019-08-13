@@ -8,7 +8,7 @@ import Constants from '../constants/Constants';
 import CustomToast from './CustomToast';
 import Loader from './Loader';
 import RNPaypal from 'react-native-paypal-lib';
-
+import strings from '../services/strings';
 export default class Login extends Component {
   constructor(props){
     super(props);
@@ -35,6 +35,15 @@ export default class Login extends Component {
     }
   }
   console.log('myarray', myarray)
+   strings.setLanguage("en");
+   this.mylanguage()
+  }
+
+  mylanguage = () => {
+  console.log(strings.getLanguage(), 'mylang')
+  }
+  componentWillMount = () => {
+    strings.setLanguage("en");
   }
  
   fbSignIn = () =>{
@@ -101,10 +110,10 @@ export default class Login extends Component {
 
       goToHome = () =>{
         service.saveUserData('user', "");
-        this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('Plan')
       }
       login = () =>{
-                this.props.navigation.navigate('Pay')
+           //     this.props.navigation.navigate('Pay')
       //   RNPaypal.paymentRequest({
       //     clientId: 'AfKX2nUfxsgqrnvw3WtvybQDQ1wTk-N9KE7WB5ow58a-h-Uo7rWLYkP_CDu_V0uV4bbkoB5DRiFux84F',
       //     environment: RNPaypal.ENVIRONMENT.SANDBOX,
@@ -118,38 +127,38 @@ export default class Login extends Component {
       // }).catch(err => {
       //     console.log(err.message)
       // })
-        // if (service.validateEmail(this.state.email))
-        // {
-        //   //alert("email correct")
-        //   this.setState ({ emailFormatError: ''});
-        // }
-        // else{
-        //   this.setState ({ emailFormatError: "Incorrect Email"});
-        // }
+        if (service.validateEmail(this.state.email))
+        {
+          //alert("email correct")
+          this.setState ({ emailFormatError: ''});
+        }
+        else{
+          this.setState ({ emailFormatError: "Incorrect Email"});
+        }
              
-        // if (this.state.email.trim() === "") {
-        //   this.setState(() => ({ emailError: " Email is required."}));
-        //   this.setState(() => ({ emailFormatError: null}));
-        // } else {
-        //   this.setState(() => ({ emailError: null})); 
-        // }
-        // if (this.state.password.trim() === "") {
-        //   this.setState(() => ({ passwordError: " Password is required."}));
-        // } else {
-        //   this.setState(() => ({ passwordError: null}));
-        // }
+        if (this.state.email.trim() === "") {
+          this.setState(() => ({ emailError: " Email is required."}));
+          this.setState(() => ({ emailFormatError: null}));
+        } else {
+          this.setState(() => ({ emailError: null})); 
+        }
+        if (this.state.password.trim() === "") {
+          this.setState(() => ({ passwordError: " Password is required."}));
+        } else {
+          this.setState(() => ({ passwordError: null}));
+        }
         
-        // if(this.state.email && this.state.password && service.validateEmail(this.state.email))
-        // {
-        //  this.setState ({ loading: true});
-        //   setTimeout(() => 
-        //   {this.setState({loading: false})
-        //   service.saveUserData('user', "");
-        //  this.props.navigation.navigate('Home')
-        //    }, 3000)
-        //   }
+        if(this.state.email && this.state.password && service.validateEmail(this.state.email))
+        {
+         this.setState ({ loading: true});
+          setTimeout(() => 
+          {this.setState({loading: false})
+          service.saveUserData('user', "");
+         this.props.navigation.navigate('Home')
+           }, 3000)
+          }
        
-      //  this.refs.defaultToastBottom.ShowToastFunction('Login SuccessFull');
+       this.refs.defaultToastBottom.ShowToastFunction('Login SuccessFull');
       
       
        }
@@ -165,13 +174,16 @@ export default class Login extends Component {
 
 
   render() {
+    console.log(strings.getLanguage(), 'myrenderlang')
     return (
       
-      <ImageBackground
+      <View
         source={constants.background}
         style={styles.container}>
+       
           <View style={styles.textContainer}>
-            <Text style={styles.topText} onPress={() => this.goToHome()}>Skip</Text>
+             
+            <Text style={styles.topText} onPress={() => this.goToHome()}>Help</Text>
           </View>
           <View style={styles.imageContainer}>
               <Image
@@ -180,7 +192,7 @@ export default class Login extends Component {
           </View> 
           <View style={styles.centerAlign}>
           <View style={styles.cardContainer}>
-                    <Text style={styles.loginText}>LOGIN</Text>
+                    <Text style={styles.loginText}>{strings.Login}</Text>
                     <View style={styles.borderWidth}>
                     <View
                 style={styles.textBorder}
@@ -250,7 +262,7 @@ export default class Login extends Component {
       </TouchableNativeFeedback>
       </View>
       <View style={styles.bottomText}>
-        <Text>You Dont Have An Account? <Text style={styles.signUpFont} onPress={() => this.goToSignUp()}>SIGN UP</Text></Text>
+        <Text style={{color : 'white'}}>You Dont Have An Account? <Text style={styles.signUpFont} onPress={() => this.goToSignUp()}>SIGN UP</Text></Text>
       </View>
     
       </View>
@@ -259,7 +271,7 @@ export default class Login extends Component {
       <Loader
           loading={this.state.loading} />
       </View>
-      </ImageBackground>
+      </View>
     
      
     );

@@ -19,7 +19,8 @@ export default styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+    backgroundColor:'#8395a7'
   },
   loginText: {
     color:colors.red,
@@ -103,6 +104,8 @@ toolbarTitle:{
     alignItems:align.center,
   },
   imageWidth:{
+    width:70,
+    height:70
   },
   centerAlign :{
    alignItems:align.center,
@@ -230,7 +233,8 @@ rowAlign3:{
   paddingTop:5
 },
 textCenter:{
-  textAlign:align.center
+  textAlign:align.center,
+  color:'white'
 },
 borderWidth3 : {
   paddingTop:18,
@@ -273,7 +277,8 @@ cardContainerSignUp:{
    },
    forgotText:{
      paddingTop:padding.md,
-     width:'100%'
+     width:'100%',
+     color:'white'
    },
    hamburgerIcon:{
      width:30,
@@ -365,7 +370,8 @@ cardContainerSignUp:{
         height:20
       },
       forgotText:{
-       paddingTop:padding.sm
+       paddingTop:padding.sm,
+       color:'white'
       },
       textWidth:{
         width:'100%'

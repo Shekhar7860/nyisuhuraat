@@ -4,7 +4,7 @@ import android.app.Application;
 //import com.magus.fblogin.FacebookLoginPackage; 
 import com.facebook.react.ReactApplication;
 import com.reactlibrary.RNPaypalPackage;
-
+import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 //import com.facebook.reactnative.androidsdk.FBSDKPackage;
@@ -45,7 +45,8 @@ public class MainApplication extends Application implements ReactApplication {
           new RNFirebasePackage(),
             new RNFirebaseMessagingPackage(),
             // new GoogleAnalyticsBridgePackage(),
-            new FBSDKPackage(mCallbackManager)
+            new FBSDKPackage(mCallbackManager),
+            new ReactNativeLocalizationPackage()
            
       );
     }

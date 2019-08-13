@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 export default class Constants  {
   background =  require('../images/bg.png');
-  logo = require('../images/1.png');
+  logo = require('../images/m.jpeg');
   emailicon = require('../images/email.png');
   passwordicon = require('../images/password.png');
   googleicon = require('../images/gmail.png');

@@ -9,7 +9,7 @@ import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import SideMenu from './components/SideMenu';
 import Paytm from './components/Paytm';
-
+import BusinessPlan from './components/BusinessPlan';
 // import { GoogleAnalyticsTracker } from 'react-native-google-analytics-bridge';
 import SplashScreen from 'react-native-splash-screen'
 
@@ -26,11 +26,12 @@ export const Menu = DrawerNavigator({
 // routing 
 const AppNavigator = StackNavigator(
   {
-    Splash: { screen: Login},
+    Splash: { screen: Splash},
     Login: { screen: Login},
     Home: { screen: Menu},
     SignUp: { screen: SignUp},
     Pay : { screen: Paytm},
+    Plan : { screen: BusinessPlan},
     ForgotPassword:{ screen : ForgotPassword}
   },
   { headerMode: 'none' }
@@ -46,7 +47,7 @@ export default class App extends Component {
     };
   }
  
- 
+  
   onNavigationChange = (navState, currentState ,action) => {
     if (navState.hasOwnProperty('index')) {
       this.setState({navState: navState.routes[navState.index]})
@@ -57,6 +58,7 @@ export default class App extends Component {
   componentDidMount = () => {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
    }
+  
   
     
    componentWillUnmount = () =>{
