@@ -9,6 +9,7 @@ import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 //import com.facebook.reactnative.androidsdk.FBSDKPackage;
 // import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage; 
 import io.invertase.firebase.RNFirebasePackage;
 import com.facebook.react.ReactNativeHost;
@@ -46,7 +47,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNFirebaseMessagingPackage(),
             // new GoogleAnalyticsBridgePackage(),
             new FBSDKPackage(mCallbackManager),
-            new ReactNativeLocalizationPackage()
+            new ReactNativeLocalizationPackage(),
+             new RNFirebaseAdMobPackage()
            
       );
     }

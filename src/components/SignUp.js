@@ -5,6 +5,13 @@ import Constants from '../constants/Constants';
 import Service from '../services/Service';
 import CustomToast from './CustomToast';
 import Loader from './Loader';
+import firebase from 'react-native-firebase';
+import strings from '../services/strings';
+const Banner = firebase.admob.Banner;
+const AdRequest = firebase.admob.AdRequest;
+const advert2 = firebase.admob().rewarded('ca-app-pub-9784974231819956/9024122983')
+const advert = firebase.admob().interstitial('ca-app-pub-9784974231819956/9820638833')
+const request = new AdRequest();
 export default class SignuUp extends Component {
 
   constructor(props){
@@ -27,6 +34,11 @@ export default class SignuUp extends Component {
   }
 
   signUp = () =>{
+    advert.loadAd(request.build());
+    advert.on('onAdLoaded', () => {
+    console.log('Advert ready to show.');
+    });
+    advert.show();
     this.setState(() => ({ cardheight:370}));
     if ( !service.validateEmail(this.state.email)) {
       this.setState(() => ({ emailFormatError: "Proper Email Format is Required"}));
@@ -80,7 +92,7 @@ export default class SignuUp extends Component {
   render() {
     return (
     
-      <ImageBackground
+      <View
         source={constants.background}
         style={styles.container}>
           <View style={styles.imgContainer}>
@@ -156,7 +168,7 @@ export default class SignuUp extends Component {
 
       
       
-      </ImageBackground>
+      </View>
       
     );
 }

@@ -64,6 +64,10 @@ export default styles = StyleSheet.create({
     flexDirection:'row'
      //Step 1
 },
+myText :{
+  color:'white',
+  fontSize : 20
+},
 toolbarButton:{
     width: 50,            //Step 2
     color:colors.white,
@@ -73,7 +77,8 @@ toolbarTitle:{
     color:colors.white,
     textAlign:align.center,
     fontWeight:'bold',
-    flex:1                //Step 3
+    flex:1,
+    fontSize:16             //Step 3
  },
   messageBoxBodyText:{
       color:colors.white,
@@ -193,7 +198,8 @@ loginContainer:{
 },
 buttonWidth:{
   width:300,
-  alignItems:align.center
+ 
+  marginTop:20
 },
 loginbutton:{
 backgroundColor:colors.red,
@@ -206,6 +212,15 @@ position:'relative',
 bottom:14,
 paddingTop:4,
  },
+ paybutton:{
+  backgroundColor:colors.red,
+  color:colors.white,
+ fontSize:20,
+ width:125,
+ marginTop:20,
+marginLeft:25
+ 
+   },
  center:{
    paddingTop:20,
    alignItems:align.center

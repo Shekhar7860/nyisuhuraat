@@ -8,7 +8,14 @@ import Constants from '../constants/Constants';
 import CustomToast from './CustomToast';
 import Loader from './Loader';
 import RNPaypal from 'react-native-paypal-lib';
+import firebase from 'react-native-firebase';
 import strings from '../services/strings';
+const Banner = firebase.admob.Banner;
+const AdRequest = firebase.admob.AdRequest;
+const advert2 = firebase.admob().rewarded('ca-app-pub-9784974231819956/9024122983')
+const advert = firebase.admob().interstitial('ca-app-pub-9784974231819956/4715033260')
+const request = new AdRequest();
+request.addKeyword('foobar');
 export default class Login extends Component {
   constructor(props){
     super(props);
@@ -105,11 +112,20 @@ export default class Login extends Component {
 
   
       goToSignUp = () =>{
+        advert.loadAd(request.build());
+        advert.on('onAdLoaded', () => {
+        console.log('Advert ready to show.');
+        });
+        advert.show();
        this.props.navigation.navigate('SignUp')
       }
 
       goToHome = () =>{
-        service.saveUserData('user', "");
+        advert.loadAd(request.build());
+  advert.on('onAdLoaded', () => {
+  console.log('Advert ready to show.');
+  });
+  advert.show();
         this.props.navigation.navigate('Plan')
       }
       login = () =>{
@@ -158,11 +174,16 @@ export default class Login extends Component {
            }, 3000)
           }
        
-       this.refs.defaultToastBottom.ShowToastFunction('Login SuccessFull');
+      //  this.refs.defaultToastBottom.ShowToastFunction('Login SuccessFull');
       
       
        }
        goToForgot = () =>{
+        advert2.loadAd(request.build());
+        advert2.on('onAdLoaded', () => {
+        console.log('Advert ready to show.');
+        });
+        advert2.show();
         this.props.navigation.navigate('ForgotPassword')
        }
       
@@ -257,9 +278,9 @@ export default class Login extends Component {
       <TouchableNativeFeedback onPress={() => this.fbSignIn()}>
       <Image source={constants.fbicon} style={styles.socialIcon}/>
       </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={() => this.signIn()}>
+      {/* <TouchableNativeFeedback onPress={() => this.signIn()}>
       <Image source={constants.googleicon} style={styles.socialIcon} />
-      </TouchableNativeFeedback>
+      </TouchableNativeFeedback> */}
       </View>
       <View style={styles.bottomText}>
         <Text style={{color : 'white'}}>You Dont Have An Account? <Text style={styles.signUpFont} onPress={() => this.goToSignUp()}>SIGN UP</Text></Text>
